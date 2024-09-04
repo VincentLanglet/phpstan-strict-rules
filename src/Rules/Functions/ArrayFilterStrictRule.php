@@ -23,14 +23,11 @@ use function sprintf;
 class ArrayFilterStrictRule implements Rule
 {
 
-	/** @var ReflectionProvider */
-	private $reflectionProvider;
+	private ReflectionProvider $reflectionProvider;
 
-	/** @var bool */
-	private $treatPhpDocTypesAsCertain;
+	private bool $treatPhpDocTypesAsCertain;
 
-	/** @var bool */
-	private $checkNullables;
+	private bool $checkNullables;
 
 	public function __construct(
 		ReflectionProvider $reflectionProvider,
@@ -68,7 +65,7 @@ class ArrayFilterStrictRule implements Rule
 			$scope,
 			$node->getArgs(),
 			$functionReflection->getVariants(),
-			$functionReflection->getNamedArgumentsVariants()
+			$functionReflection->getNamedArgumentsVariants(),
 		);
 
 		$normalizedFuncCall = ArgumentsNormalizer::reorderFuncArguments($parametersAcceptor, $node);
@@ -132,7 +129,7 @@ class ArrayFilterStrictRule implements Rule
 			$message = 'Parameter #2 of array_filter() cannot be null to avoid loose comparison semantics (%s given).';
 			$errorBuilder = RuleErrorBuilder::message(sprintf(
 				$message,
-				$callbackType->describe(VerbosityLevel::typeOnly())
+				$callbackType->describe(VerbosityLevel::typeOnly()),
 			))->identifier('arrayFilter.strict');
 
 			if (!$this->isCallbackTypeNull($nativeCallbackType) && $this->treatPhpDocTypesAsCertain) {

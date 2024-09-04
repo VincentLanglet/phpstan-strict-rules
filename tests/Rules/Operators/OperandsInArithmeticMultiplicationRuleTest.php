@@ -16,9 +16,9 @@ class OperandsInArithmeticMultiplicationRuleTest extends RuleTestCase
 	{
 		return new OperandsInArithmeticMultiplicationRule(
 			new OperatorRuleHelper(
-				self::getContainer()->getByType(RuleLevelHelper::class)
+				self::getContainer()->getByType(RuleLevelHelper::class),
 			),
-			true
+			true,
 		);
 	}
 

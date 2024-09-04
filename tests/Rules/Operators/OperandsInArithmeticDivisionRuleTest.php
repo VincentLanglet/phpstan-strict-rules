@@ -16,9 +16,9 @@ class OperandsInArithmeticDivisionRuleTest extends RuleTestCase
 	{
 		return new OperandsInArithmeticDivisionRule(
 			new OperatorRuleHelper(
-				self::getContainer()->getByType(RuleLevelHelper::class)
+				self::getContainer()->getByType(RuleLevelHelper::class),
 			),
-			true
+			true,
 		);
 	}
 

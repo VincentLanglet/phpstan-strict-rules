@@ -17,8 +17,7 @@ use function sprintf;
 class MatchingTypeInSwitchCaseConditionRule implements Rule
 {
 
-	/** @var Standard */
-	private $printer;
+	private Standard $printer;
 
 	public function __construct(Standard $printer)
 	{
@@ -48,7 +47,7 @@ class MatchingTypeInSwitchCaseConditionRule implements Rule
 				'Switch condition type (%s) does not match case condition %s (%s).',
 				$conditionType->describe(VerbosityLevel::value()),
 				$this->printer->prettyPrintExpr($case->cond),
-				$caseType->describe(VerbosityLevel::typeOnly())
+				$caseType->describe(VerbosityLevel::typeOnly()),
 			))
 				->line($case->getLine())
 				->identifier('switch.type')

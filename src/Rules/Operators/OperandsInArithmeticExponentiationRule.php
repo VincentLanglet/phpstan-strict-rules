@@ -18,11 +18,9 @@ use function sprintf;
 class OperandsInArithmeticExponentiationRule implements Rule
 {
 
-	/** @var OperatorRuleHelper */
-	private $helper;
+	private OperatorRuleHelper $helper;
 
-	/** @var bool */
-	private $bleedingEdge;
+	private bool $bleedingEdge;
 
 	public function __construct(OperatorRuleHelper $helper, bool $bleedingEdge)
 	{
@@ -52,7 +50,7 @@ class OperandsInArithmeticExponentiationRule implements Rule
 		if (!$this->helper->isValidForArithmeticOperation($scope, $left)) {
 			$messages[] = RuleErrorBuilder::message(sprintf(
 				'Only numeric types are allowed in **, %s given on the left side.',
-				$leftType->describe(VerbosityLevel::typeOnly())
+				$leftType->describe(VerbosityLevel::typeOnly()),
 			))->identifier('pow.leftNonNumeric')->build();
 		}
 
@@ -60,7 +58,7 @@ class OperandsInArithmeticExponentiationRule implements Rule
 		if (!$this->helper->isValidForArithmeticOperation($scope, $right)) {
 			$messages[] = RuleErrorBuilder::message(sprintf(
 				'Only numeric types are allowed in **, %s given on the right side.',
-				$rightType->describe(VerbosityLevel::typeOnly())
+				$rightType->describe(VerbosityLevel::typeOnly()),
 			))->identifier('pow.rightNonNumeric')->build();
 		}
 

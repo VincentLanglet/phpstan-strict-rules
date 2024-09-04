@@ -16,8 +16,8 @@ class BooleanInIfConditionRuleTest extends RuleTestCase
 	{
 		return new BooleanInIfConditionRule(
 			new BooleanRuleHelper(
-				self::getContainer()->getByType(RuleLevelHelper::class)
-			)
+				self::getContainer()->getByType(RuleLevelHelper::class),
+			),
 		);
 	}
 

@@ -11,11 +11,9 @@ use PHPStan\Testing\RuleTestCase;
 class ArrayFilterStrictRuleTest extends RuleTestCase
 {
 
-	/** @var bool */
-	private $treatPhpDocTypesAsCertain;
+	private bool $treatPhpDocTypesAsCertain;
 
-	/** @var bool */
-	private $checkNullables;
+	private bool $checkNullables;
 
 	protected function getRule(): Rule
 	{

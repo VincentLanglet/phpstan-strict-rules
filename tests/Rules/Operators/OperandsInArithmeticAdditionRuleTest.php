@@ -18,9 +18,9 @@ class OperandsInArithmeticAdditionRuleTest extends RuleTestCase
 	{
 		return new OperandsInArithmeticAdditionRule(
 			new OperatorRuleHelper(
-				self::getContainer()->getByType(RuleLevelHelper::class)
+				self::getContainer()->getByType(RuleLevelHelper::class),
 			),
-			true
+			true,
 		);
 	}
 
@@ -55,7 +55,7 @@ class OperandsInArithmeticAdditionRuleTest extends RuleTestCase
 					'Only numeric types are allowed in +, null given on the right side.',
 					133,
 				],
-			]
+			],
 		);
 
 		$this->analyse([__DIR__ . '/data/operators.php'], $messages);

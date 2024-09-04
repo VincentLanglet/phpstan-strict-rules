@@ -16,8 +16,8 @@ class BooleanInTernaryOperatorRuleTest extends RuleTestCase
 	{
 		return new BooleanInTernaryOperatorRule(
 			new BooleanRuleHelper(
-				self::getContainer()->getByType(RuleLevelHelper::class)
-			)
+				self::getContainer()->getByType(RuleLevelHelper::class),
+			),
 		);
 	}
 

@@ -16,11 +16,9 @@ use function sprintf;
 class BooleanInBooleanAndRule implements Rule
 {
 
-	/** @var BooleanRuleHelper */
-	private $helper;
+	private BooleanRuleHelper $helper;
 
-	/** @var bool */
-	private $bleedingEdge;
+	private bool $bleedingEdge;
 
 	public function __construct(BooleanRuleHelper $helper, bool $bleedingEdge)
 	{
@@ -44,7 +42,7 @@ class BooleanInBooleanAndRule implements Rule
 			$messages[] = RuleErrorBuilder::message(sprintf(
 				'Only booleans are allowed in %s, %s given on the left side.',
 				$nodeText,
-				$leftType->describe(VerbosityLevel::typeOnly())
+				$leftType->describe(VerbosityLevel::typeOnly()),
 			))->identifier(sprintf('%s.leftNotBoolean', $identifierType))->build();
 		}
 
@@ -54,7 +52,7 @@ class BooleanInBooleanAndRule implements Rule
 			$messages[] = RuleErrorBuilder::message(sprintf(
 				'Only booleans are allowed in %s, %s given on the right side.',
 				$nodeText,
-				$rightType->describe(VerbosityLevel::typeOnly())
+				$rightType->describe(VerbosityLevel::typeOnly()),
 			))->identifier(sprintf('%s.rightNotBoolean', $identifierType))->build();
 		}
 

@@ -17,8 +17,8 @@ abstract class OperandInArithmeticIncrementOrDecrementRuleTestCase extends RuleT
 	{
 		return $this->createRule(
 			new OperatorRuleHelper(
-				self::getContainer()->getByType(RuleLevelHelper::class)
-			)
+				self::getContainer()->getByType(RuleLevelHelper::class),
+			),
 		);
 	}
 

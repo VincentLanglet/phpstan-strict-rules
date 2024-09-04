@@ -16,8 +16,8 @@ class BooleanInBooleanNotRuleTest extends RuleTestCase
 	{
 		return new BooleanInBooleanNotRule(
 			new BooleanRuleHelper(
-				self::getContainer()->getByType(RuleLevelHelper::class)
-			)
+				self::getContainer()->getByType(RuleLevelHelper::class),
+			),
 		);
 	}
 

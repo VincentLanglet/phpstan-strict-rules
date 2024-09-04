@@ -11,8 +11,7 @@ use PHPStan\Testing\RuleTestCase;
 class UselessCastRuleTest extends RuleTestCase
 {
 
-	/** @var bool */
-	private $treatPhpDocTypesAsCertain;
+	private bool $treatPhpDocTypesAsCertain;
 
 	protected function getRule(): Rule
 	{
@@ -57,7 +56,7 @@ class UselessCastRuleTest extends RuleTestCase
 					46,
 					'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
 				],
-			]
+			],
 		);
 	}
 

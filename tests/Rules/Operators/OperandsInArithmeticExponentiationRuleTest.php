@@ -16,9 +16,9 @@ class OperandsInArithmeticExponentiationRuleTest extends RuleTestCase
 	{
 		return new OperandsInArithmeticExponentiationRule(
 			new OperatorRuleHelper(
-				self::getContainer()->getByType(RuleLevelHelper::class)
+				self::getContainer()->getByType(RuleLevelHelper::class),
 			),
-			true
+			true,
 		);
 	}
 

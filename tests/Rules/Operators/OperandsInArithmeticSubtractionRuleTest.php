@@ -16,9 +16,9 @@ class OperandsInArithmeticSubtractionRuleTest extends RuleTestCase
 	{
 		return new OperandsInArithmeticSubtractionRule(
 			new OperatorRuleHelper(
-				self::getContainer()->getByType(RuleLevelHelper::class)
+				self::getContainer()->getByType(RuleLevelHelper::class),
 			),
-			true
+			true,
 		);
 	}
 
