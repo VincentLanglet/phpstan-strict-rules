@@ -1,6 +1,7 @@
 parameters:
 	polluteScopeWithLoopInitialAssignments: false
 	polluteScopeWithAlwaysIterableForeach: false
+	polluteScopeWithBlock: false
 	checkAlwaysTrueCheckTypeFunctionCall: true
 	checkAlwaysTrueInstanceof: true
 	checkAlwaysTrueStrictComparison: true
