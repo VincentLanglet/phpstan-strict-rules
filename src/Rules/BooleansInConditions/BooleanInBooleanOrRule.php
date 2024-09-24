@@ -18,12 +18,9 @@ class BooleanInBooleanOrRule implements Rule
 
 	private BooleanRuleHelper $helper;
 
-	private bool $bleedingEdge;
-
-	public function __construct(BooleanRuleHelper $helper, bool $bleedingEdge)
+	public function __construct(BooleanRuleHelper $helper)
 	{
 		$this->helper = $helper;
-		$this->bleedingEdge = $bleedingEdge;
 	}
 
 	public function getNodeType(): string
@@ -35,7 +32,7 @@ class BooleanInBooleanOrRule implements Rule
 	{
 		$originalNode = $node->getOriginalNode();
 		$messages = [];
-		$nodeText = $this->bleedingEdge ? $originalNode->getOperatorSigil() : '||';
+		$nodeText = $originalNode->getOperatorSigil();
 		$identifierType = $originalNode instanceof Node\Expr\BinaryOp\BooleanOr ? 'booleanOr' : 'logicalOr';
 		if (!$this->helper->passesAsBoolean($scope, $originalNode->left)) {
 			$leftType = $scope->getType($originalNode->left);

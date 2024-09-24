@@ -18,7 +18,6 @@ class BooleanInBooleanAndRuleTest extends RuleTestCase
 			new BooleanRuleHelper(
 				self::getContainer()->getByType(RuleLevelHelper::class),
 			),
-			true,
 		);
 	}
 

@@ -6,19 +6,19 @@ parameters:
 	checkAlwaysTrueInstanceof: true
 	checkAlwaysTrueStrictComparison: true
 	checkAlwaysTrueLooseComparison: true
-	checkDynamicProperties: %featureToggles.bleedingEdge%
+	checkDynamicProperties: true
 	checkExplicitMixedMissingReturn: true
 	checkFunctionNameCase: true
 	checkInternalClassCaseSensitivity: true
 	reportMaybesInMethodSignatures: true
 	reportStaticMethodSignatures: true
 	reportMaybesInPropertyPhpDocTypes: true
-	reportWrongPhpDocTypeInVarTag: %featureToggles.bleedingEdge%
+	reportWrongPhpDocTypeInVarTag: true
 	featureToggles:
-		illegalConstructorMethodCall: %featureToggles.bleedingEdge%
+		illegalConstructorMethodCall: true
 	strictRules:
 		allRules: true
-		disallowedLooseComparison: [%strictRules.allRules%, %featureToggles.bleedingEdge%]
+		disallowedLooseComparison: %strictRules.allRules%
 		booleansInConditions: %strictRules.allRules%
 		uselessCast: %strictRules.allRules%
 		requireParentConstructorCall: %strictRules.allRules%
@@ -34,7 +34,7 @@ parameters:
 		dynamicCallOnStaticMethod: %strictRules.allRules%
 		switchConditionsMatchingType: %strictRules.allRules%
 		noVariableVariables: %strictRules.allRules%
-		strictArrayFilter: [%strictRules.allRules%, %featureToggles.bleedingEdge%]
+		strictArrayFilter: %strictRules.allRules%
 
 parametersSchema:
 	strictRules: structure([
@@ -155,16 +155,12 @@ services:
 
 	-
 		class: PHPStan\Rules\BooleansInConditions\BooleanInBooleanAndRule
-		arguments:
-			bleedingEdge: %featureToggles.bleedingEdge%
 
 	-
 		class: PHPStan\Rules\BooleansInConditions\BooleanInBooleanNotRule
 
 	-
 		class: PHPStan\Rules\BooleansInConditions\BooleanInBooleanOrRule
-		arguments:
-			bleedingEdge: %featureToggles.bleedingEdge%
 
 	-
 		class: PHPStan\Rules\BooleansInConditions\BooleanInElseIfConditionRule
@@ -229,33 +225,21 @@ services:
 
 	-
 		class: PHPStan\Rules\Operators\OperandsInArithmeticAdditionRule
-		arguments:
-			bleedingEdge: %featureToggles.bleedingEdge%
 
 	-
 		class: PHPStan\Rules\Operators\OperandsInArithmeticDivisionRule
-		arguments:
-			bleedingEdge: %featureToggles.bleedingEdge%
 
 	-
 		class: PHPStan\Rules\Operators\OperandsInArithmeticExponentiationRule
-		arguments:
-			bleedingEdge: %featureToggles.bleedingEdge%
 
 	-
 		class: PHPStan\Rules\Operators\OperandsInArithmeticModuloRule
-		arguments:
-			bleedingEdge: %featureToggles.bleedingEdge%
 
 	-
 		class: PHPStan\Rules\Operators\OperandsInArithmeticMultiplicationRule
-		arguments:
-			bleedingEdge: %featureToggles.bleedingEdge%
 
 	-
 		class: PHPStan\Rules\Operators\OperandsInArithmeticSubtractionRule
-		arguments:
-			bleedingEdge: %featureToggles.bleedingEdge%
 
 	-
 		class: PHPStan\Rules\StrictCalls\DynamicCallOnStaticMethodsRule

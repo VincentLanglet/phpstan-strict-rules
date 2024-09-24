@@ -20,12 +20,9 @@ class OperandsInArithmeticExponentiationRule implements Rule
 
 	private OperatorRuleHelper $helper;
 
-	private bool $bleedingEdge;
-
-	public function __construct(OperatorRuleHelper $helper, bool $bleedingEdge)
+	public function __construct(OperatorRuleHelper $helper)
 	{
 		$this->helper = $helper;
-		$this->bleedingEdge = $bleedingEdge;
 	}
 
 	public function getNodeType(): string
@@ -38,7 +35,7 @@ class OperandsInArithmeticExponentiationRule implements Rule
 		if ($node instanceof BinaryOpPow) {
 			$left = $node->left;
 			$right = $node->right;
-		} elseif ($node instanceof AssignOpPow && $this->bleedingEdge) {
+		} elseif ($node instanceof AssignOpPow) {
 			$left = $node->var;
 			$right = $node->expr;
 		} else {

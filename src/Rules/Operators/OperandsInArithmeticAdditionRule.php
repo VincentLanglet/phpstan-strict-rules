@@ -21,12 +21,9 @@ class OperandsInArithmeticAdditionRule implements Rule
 
 	private OperatorRuleHelper $helper;
 
-	private bool $bleedingEdge;
-
-	public function __construct(OperatorRuleHelper $helper, bool $bleedingEdge)
+	public function __construct(OperatorRuleHelper $helper)
 	{
 		$this->helper = $helper;
-		$this->bleedingEdge = $bleedingEdge;
 	}
 
 	public function getNodeType(): string
@@ -39,7 +36,7 @@ class OperandsInArithmeticAdditionRule implements Rule
 		if ($node instanceof BinaryOpPlus) {
 			$left = $node->left;
 			$right = $node->right;
-		} elseif ($node instanceof AssignOpPlus && $this->bleedingEdge) {
+		} elseif ($node instanceof AssignOpPlus) {
 			$left = $node->var;
 			$right = $node->expr;
 		} else {
