@@ -66,12 +66,16 @@ parameters:
 		booleansInConditions: false
 		uselessCast: false
 		requireParentConstructorCall: false
-		disallowedConstructs: false
+		disallowedBacktick: false
+		disallowedEmpty: false
+		disallowedImplicitArrayCreation: false
+		disallowedShortTernary: false
 		overwriteVariablesWithLoop: false
 		closureUsesThis: false
 		matchingInheritedMethodNames: false
 		numericOperandsInArithmeticOperators: false
-		strictCalls: false
+		strictFunctionCalls: false
+		dynamicCallOnStaticMethod: false
 		switchConditionsMatchingType: false
 		noVariableVariables: false
 		strictArrayFilter: false
