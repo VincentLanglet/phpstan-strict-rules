@@ -79,6 +79,7 @@ parameters:
 		switchConditionsMatchingType: false
 		noVariableVariables: false
 		strictArrayFilter: false
+		illegalConstructorMethodCall: false
 ```
 
 Aside from introducing new custom rules, phpstan-strict-rules also [change the default values of some configuration parameters](https://github.com/phpstan/phpstan-strict-rules/blob/1.6.x/rules.neon#L1) that are present in PHPStan itself. These parameters are [documented on phpstan.org](https://phpstan.org/config-reference#stricter-analysis).
