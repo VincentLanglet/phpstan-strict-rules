@@ -2,7 +2,7 @@
 
 namespace PHPStan\Rules\SwitchConditions;
 
-use PhpParser\PrettyPrinter\Standard;
+use PHPStan\Node\Printer\Printer;
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
 
@@ -14,7 +14,7 @@ class MatchingTypeInSwitchCaseConditionRuleTest extends RuleTestCase
 
 	protected function getRule(): Rule
 	{
-		return new MatchingTypeInSwitchCaseConditionRule(new Standard());
+		return new MatchingTypeInSwitchCaseConditionRule(new Printer());
 	}
 
 	public function testRule(): void
