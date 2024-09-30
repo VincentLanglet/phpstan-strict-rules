@@ -14,7 +14,7 @@ class MatchingTypeInSwitchCaseConditionRuleTest extends RuleTestCase
 
 	protected function getRule(): Rule
 	{
-		return new MatchingTypeInSwitchCaseConditionRule(new Printer());
+		return new MatchingTypeInSwitchCaseConditionRule(self::getContainer()->getByType(Printer::class));
 	}
 
 	public function testRule(): void
