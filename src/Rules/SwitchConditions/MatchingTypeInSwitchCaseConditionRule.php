@@ -4,8 +4,8 @@ namespace PHPStan\Rules\SwitchConditions;
 
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Switch_;
-use PhpParser\PrettyPrinter\Standard;
 use PHPStan\Analyser\Scope;
+use PHPStan\Node\Printer\Printer;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Type\VerbosityLevel;
@@ -17,9 +17,9 @@ use function sprintf;
 class MatchingTypeInSwitchCaseConditionRule implements Rule
 {
 
-	private Standard $printer;
+	private Printer $printer;
 
-	public function __construct(Standard $printer)
+	public function __construct(Printer $printer)
 	{
 		$this->printer = $printer;
 	}
