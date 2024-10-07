@@ -38,7 +38,7 @@ class OperandsInArithmeticAdditionRuleTest extends RuleTestCase
 
 		if (PHP_VERSION_ID < 80000) {
 			$messages[] = [
-				'Only numeric types are allowed in +, (array<int, string>|false) given on the left side.',
+				'Only numeric types are allowed in +, (list<string>|false) given on the left side.',
 				110,
 			];
 		}
