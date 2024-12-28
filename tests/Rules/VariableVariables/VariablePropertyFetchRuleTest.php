@@ -15,7 +15,6 @@ class VariablePropertyFetchRuleTest extends RuleTestCase
 	{
 		return new VariablePropertyFetchRule($this->createReflectionProvider(), [
 			'stdClass',
-			'SimpleXMLElement',
 		]);
 	}
 
@@ -27,6 +26,11 @@ class VariablePropertyFetchRuleTest extends RuleTestCase
 				24,
 			],
 		]);
+	}
+
+	public function testBug243(): void
+	{
+		$this->analyse([__DIR__ . '/data/bug243.php'], []);
 	}
 
 }
