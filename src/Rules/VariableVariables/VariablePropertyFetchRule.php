@@ -10,6 +10,7 @@ use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Type\VerbosityLevel;
+use SimpleXMLElement;
 use function sprintf;
 
 /**
@@ -50,7 +51,11 @@ class VariablePropertyFetchRule implements Rule
 				continue;
 			}
 
-			if ($this->isUniversalObjectCrate($this->reflectionProvider->getClass($referencedClass))) {
+			$classReflection = $this->reflectionProvider->getClass($referencedClass);
+			if (
+				$this->isUniversalObjectCrate($classReflection)
+				|| $this->isSimpleXMLElement($classReflection)
+			) {
 				return [];
 			}
 		}
@@ -61,6 +66,14 @@ class VariablePropertyFetchRule implements Rule
 				$fetchedOnType->describe(VerbosityLevel::typeOnly())
 			))->identifier('property.dynamicName')->build(),
 		];
+	}
+
+	private function isSimpleXMLElement(
+		ClassReflection $classReflection
+	): bool
+	{
+		return $classReflection->getName() === SimpleXMLElement::class
+			|| $classReflection->isSubclassOf(SimpleXMLElement::class);
 	}
 
 	private function isUniversalObjectCrate(
