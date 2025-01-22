@@ -64,11 +64,15 @@ conditionalTags:
 		phpstan.rules.rule: %strictRules.booleansInConditions%
 	PHPStan\Rules\BooleansInConditions\BooleanInBooleanOrRule:
 		phpstan.rules.rule: %strictRules.booleansInConditions%
+	PHPStan\Rules\BooleansInConditions\BooleanInDoWhileConditionRule:
+		phpstan.rules.rule: %strictRules.booleansInConditions%
 	PHPStan\Rules\BooleansInConditions\BooleanInElseIfConditionRule:
 		phpstan.rules.rule: %strictRules.booleansInConditions%
 	PHPStan\Rules\BooleansInConditions\BooleanInIfConditionRule:
 		phpstan.rules.rule: %strictRules.booleansInConditions%
 	PHPStan\Rules\BooleansInConditions\BooleanInTernaryOperatorRule:
+		phpstan.rules.rule: %strictRules.booleansInConditions%
+	PHPStan\Rules\BooleansInConditions\BooleanInWhileConditionRule:
 		phpstan.rules.rule: %strictRules.booleansInConditions%
 	PHPStan\Rules\Cast\UselessCastRule:
 		phpstan.rules.rule: %strictRules.uselessCast%
@@ -164,6 +168,9 @@ services:
 		class: PHPStan\Rules\BooleansInConditions\BooleanInBooleanOrRule
 
 	-
+		class: PHPStan\Rules\BooleansInConditions\BooleanInDoWhileConditionRule
+
+	-
 		class: PHPStan\Rules\BooleansInConditions\BooleanInElseIfConditionRule
 
 	-
@@ -171,6 +178,9 @@ services:
 
 	-
 		class: PHPStan\Rules\BooleansInConditions\BooleanInTernaryOperatorRule
+
+	-
+		class: PHPStan\Rules\BooleansInConditions\BooleanInWhileConditionRule
 
 	-
 		class: PHPStan\Rules\Cast\UselessCastRule
