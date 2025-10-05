@@ -26,6 +26,7 @@ parameters:
 		closureUsesThis: %strictRules.allRules%
 		matchingInheritedMethodNames: %strictRules.allRules%
 		numericOperandsInArithmeticOperators: %strictRules.allRules%
+		integerOperandsInBitwiseOperators: [%strictRules.allRules%, %featureToggles.bleedingEdge%]
 		strictFunctionCalls: %strictRules.allRules%
 		dynamicCallOnStaticMethod: %strictRules.allRules%
 		switchConditionsMatchingType: %strictRules.allRules%
@@ -49,6 +50,7 @@ parametersSchema:
 		closureUsesThis: anyOf(bool(), arrayOf(bool()))
 		matchingInheritedMethodNames: anyOf(bool(), arrayOf(bool()))
 		numericOperandsInArithmeticOperators: anyOf(bool(), arrayOf(bool()))
+		numericOperandsInBitwiseOperators: anyOf(bool(), arrayOf(bool()))
 		strictFunctionCalls: anyOf(bool(), arrayOf(bool()))
 		dynamicCallOnStaticMethod: anyOf(bool(), arrayOf(bool()))
 		switchConditionsMatchingType: anyOf(bool(), arrayOf(bool()))

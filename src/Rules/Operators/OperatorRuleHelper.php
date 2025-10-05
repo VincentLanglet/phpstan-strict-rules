@@ -41,6 +41,21 @@ class OperatorRuleHelper
 		return $this->isSubtypeOfNumber($scope, $expr);
 	}
 
+	public function isValidForBitwiseOperation(Scope $scope, Expr $expr): bool
+	{
+		$type = $scope->getType($expr);
+		if ($type instanceof MixedType) {
+			return true;
+		}
+
+		// already reported by PHPStan core
+		if ($type->toNumber() instanceof ErrorType) {
+			return true;
+		}
+
+		return $this->isSubtypeOfNumber($scope, $expr);
+	}
+
 	public function isValidForIncrement(Scope $scope, Expr $expr): bool
 	{
 		$type = $scope->getType($expr);
